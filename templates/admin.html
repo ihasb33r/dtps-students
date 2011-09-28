@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block results %}
+<div id="adminmain" class="content">
+    <form action="/admin" method="post">
+        <table id="admin" class="tablesorter">
+            <tr>
+                <td>
+        <label for="period">Περίοδος</label>
+    </td>
+    <td>
+        <select name="period">
+            <option value="1">ΙΟΥΝΙΟΣ</option>
+            <option value="2">ΦΕΒΡΟΥΑΡΙΟΣ</option>
+            <option value="3">ΣΕΠΤΕΜΒΡΙΟΣ</option>
+        </select>
+    </td>
+</tr>
+
+    <tr>
+        <td>
+        <label for="forceupdates">Force Updates</label>
+    </td>
+    <td>
+        <input type="checkbox">
+    </td>
+</tr>
+<tr><td></td><td>
+        <input type="submit" value="Αποθήκευση"/>
+    </td>
+</tr>
+</table>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block results %}
+
+<ul class="tabs">
+    <li><a href="#month-june">Ιούνιος</a></li>
+    <li><a href="#month-febr">Φεβρουάριος</a></li>
+    <li><a href="#month-sept">Σεπτέμβριος</a></li>
+</ul>
+
+<div class="month-container">
+
+    <div id="month-june" class="content">
+
+        <em style="font-size:10px;">click στους τίτλους του πίνακα για ταξινόμηση</em>
+        <table id="junetable" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>
+                        Πρόσφατο
+                    </th>
+                    <th>
+                        Όνομα Μαθήματος
+                    </th>
+                    <th>
+                        Βαθμός
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div id="month-febr" class="content">
+
+        <em style="font-size:10px;">click στους τίτλους του πίνακα για ταξινόμηση</em>
+        <table id="febrtable" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>
+                        Πρόσφατο
+                    </th>
+                    <th>
+                        Όνομα Μαθήματος
+                    </th>
+                    <th>
+                        Βαθμός
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="month-sept" class="content">
+
+        <em style="font-size:10px;">click στους τίτλους του πίνακα για ταξινόμηση</em>
+        <table id="septtable" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>
+                        Πρόσφατο
+                    </th>
+                    <th>
+                        Όνομα Μαθήματος
+                    </th>
+                    <th>
+                        Βαθμός
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() 
+            { 
+            $("#septtable").tablesorter({widgets:['zebra']});
+            $("#junetable").tablesorter({widgets:['zebra']});
+            $("#febrtable").tablesorter({widgets:['zebra']});
+            jsonpage = "/student?id={{ id }}&json=true";
+            renderstudent(jsonpage, $("#septtable"), $("#febrtable"), $("#junetable"));
+            } 
+            ); 
+</script>
+
+<script> 
+    $(document).ready(function() {
+
+        //When page loads...
+        $(".content").hide(); //Hide all content
+        $("ul.tabs li:first").addClass("active").show(); //Activate first tab
+        $(".content:first").show(); //Show first tab content
+
+        //On Click Event
+        $("ul.tabs li").click(function() {
+
+            $("ul.tabs li").removeClass("active"); //Remove any "active" class
+            $(this).addClass("active"); //Add "active" class to selected tab
+            $(".content").hide(); //Hide all tab content
+
+            var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
+            $(activeTab).fadeIn(); //Fade in the active ID content
+            return false;
+        });
+
+    });
+</script>
+
+{% endblock %}
+

@@ -1,0 +1,252 @@
+
+body {
+    font:0.75em/1.7em Verdana,Arial,Geneva,Helvetica,sans-serif;
+    margin:0px;
+    padding:0px;
+    background-color: white;
+    line-height: 1.48em;
+
+}
+.tablesorter{
+    width:600px;
+}
+#header {
+    font-family: Helvetica,Arial,sans-serif;
+    margin:0px;
+    padding:0px;
+    background-color:black;
+    top:0px;
+    /*border-bottom: solid #009bff 2px;*/
+    height:50px;
+    color:#d8d8d8;
+}
+
+#header a:visited, #header a, #header a:hover {
+    text-decoration:none;
+    color:#d8d8d8;
+
+}
+#header a:hover {
+    color:#f8f8f8;
+}
+
+ul.tabs {
+    margin: 0;
+    padding: 0;
+    float: left;
+    list-style: none;
+    height: 32px; /*--Set height of tabs--*/
+    border-bottom: 1px solid #999;
+    border-left: 1px solid #999;
+    width: 100%;
+}
+
+ul.tabs li {
+    float: left;
+    margin: 0;
+    padding: 0;
+    height: 31px; /*--Subtract 1px from the height of the unordered list--*/
+    line-height: 31px; /*--Vertically aligns the text within the tab--*/
+    border: 1px solid #999;
+    border-left: none;
+    margin-bottom: -1px; /*--Pull the list item down 1px--*/
+    overflow: hidden;
+    position: relative;
+    background: #e0e0e0;
+}
+
+ul.tabs li a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    /*        font-size: 1.2em; */
+    font-weight:bold;
+    padding: 0 20px;
+    border: 1px solid #fff; /*--Gives the bevel look with a 1px white border inside the list item--*/
+    outline: none;
+}
+
+ul.tabs li a:hover {
+    background: #ccc;
+}
+
+html ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the active tab does not listen to the hover properties--*/
+    background: #fff;
+    border-bottom: 1px solid #fff; /*--Makes the active tab look like it's connected with its content--*/
+}
+
+.month-container {
+    border: 1px solid #999;
+    border-top: none;
+    overflow: hidden;
+    clear: both;
+    float: left; width: 100%;
+    background: #fff;
+}
+.content {
+    padding: 20px;
+    /*	font-size: 1.2em;*/
+}
+
+.hugelogin{ 
+    -webkit-border-radius: 10px; /* Safari prototype */
+    -moz-border-radius: 10px; /* Gecko browsers */
+    border-radius: 10px; /* Everything else - limited support at the moment */
+    color:white;
+    font-size:20px;
+    padding:80px;
+    padding-top:20px;
+    padding-bottom:20px;
+    width:150px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+    background-color:navy;
+}
+.update-link, .updating{ 
+    -webkit-border-radius: 10px; /* Safari prototype */
+    -moz-border-radius: 10px; /* Gecko browsers */
+    border-radius: 10px; /* Everything else - limited support at the moment */
+    color:black;
+    font-size:1.4em;
+    text-decoration:none;
+    border:1px solid black;
+    padding:30px;
+    padding-top:10px;
+    padding-bottom:10px;
+    width:150px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+    background-color:#E6EEEE;
+}
+
+.update-link:hover {
+    border:1px solid gray;
+}
+
+.success, .fail{ 
+    z-index:3;
+    position:fixed;
+    top:1px;
+    left:85%;
+    -webkit-border-radius: 10px; /* Safari prototype */
+    -moz-border-radius: 10px; /* Gecko browsers */
+    border-radius: 10px; /* Everything else - limited support at the moment */
+    color:black;
+    border:1px solid black;
+    padding:30px;
+    padding-top:10px;
+    padding-bottom:10px;
+    width:100px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+    background-color:#6CF268;
+}
+
+.fail {
+    background-color:#F5504E;
+}
+.logo {
+    position:relative;
+    font-weight:bold;
+    left:20px;
+    top:15px;
+    padding:0px;
+    margin:0px;
+    font-size:1.8em;
+    width:200px;
+}
+
+#main label {
+    display:block;
+    margin-top:15px;
+    margin-bottom:5px;
+    color:black;
+    font-size:1.2em;
+}
+fieldset {
+    background-color: #E6EEEE;
+}
+    
+
+
+.nav {
+    left:180px;
+    position:relative;
+    top:0px;
+    display:inline;
+    padding-left:20px;
+}
+
+.nav li {
+    padding-left:20px;
+    font-size:1.33em;
+    font-family: Helvetica,Arial,sans-serif;
+    font-weight:bold;
+    display:inline;
+}
+
+.search {
+    border:none;
+    display:inline;
+    width:200px;
+    float:right;
+    top:27px;
+    right:20px;
+    position:relative;
+
+}
+.amsearch {
+    margin-left:10px;
+    margin-right:10px;
+    width:90px;
+    height:25px;
+    font-size:1.22em;
+    border: solid 2px #c8c8c8;
+    text-align:center;
+}
+.links{
+    width:200px;
+}
+
+.amsubmit {
+    height:30px;
+    font-weight:bold;
+}
+
+label {
+    position:relative;
+    bottom:-2px;
+    font-size:1.33em;
+    color: #d8d8d8;
+    font-weight:bold;
+}
+
+#main {
+    padding:30px;
+}
+
+
+td.date{
+    width:80px;
+}
+
+span.date{
+    display:none;
+}
+
+p {
+    display:block;
+}
+
+h4 {
+    margin-top: 30px;
+    margin-bottom:10px;
+}
+
+

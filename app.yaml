@@ -1,0 +1,62 @@
+application: dtps-students
+version: 1
+runtime: python
+api_version: 1
+
+builtins:
+- remote_api: on
+- datastore_admin: on
+- deferred: on
+
+derived_file_type:
+- python_precompiled
+
+handlers:
+- url: /
+  script: pages/main.py
+
+- url: /main
+  script: pages/main.py
+
+- url: /admin
+  script: pages/admin.py
+  login: admin
+
+- url: /resetdb
+  script: pages/resetdb.py
+  login: admin
+
+- url: /runtests
+  script: tests/runtests.py
+  login: admin
+
+- url: /delete-grades
+  script: pages/remove_old_grades.py
+  login: admin
+
+- url: /static-media
+  static_dir: static-media
+
+- url: /faq
+  script: pages/faq.py
+
+- url: /updatenext
+  script: pages/update_next.py
+  login: admin
+
+- url: /updatesummary
+  script: pages/update_sum.py
+  login: admin
+- url: /student
+  script: pages/student.py
+
+- url: /course
+  script: pages/course.py
+
+- url: /robots.txt
+  static_files: static-media/robots.txt
+  upload: static-media/robots.txt
+
+- url: /favicon.ico
+  static_files: favicon.ico
+  upload: favicon.ico

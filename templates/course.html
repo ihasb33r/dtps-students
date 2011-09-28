@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block results %}
+<div id="toolbar">
+    <h3 style="display:block">{{ name }}</h3>
+    <span style="font-size:1.2em; margin-right:10px;">Καινούριοι βαθμοί; Πείτε το στο: </span>
+    <span class="st_facebook_large"></span>
+    <span class="st_twitter_large" st_title="#dtps "></span>
+</div>
+
+<ul id="tabs" class="tabs">
+    <li><a id="firstmonthlink" href="#firstmonthcont">Φεβρουάριος</a></li>
+    <li><a id="secondmonthlink" href="#secondmonthcont">Σεπτέμβριος</a></li>
+</ul>
+
+<div class="month-container">
+
+    <div id="firstmonthcont" class="content">
+
+
+        <table id="firstgradelist" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>Αριθμός Μητρώου</th>
+                    <th>Βαθμός</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="graphwrapper">
+            <div id="firstplot"></div>
+            <div id="firstpieall"></div>
+            <div id="firstpiefailpass"></div>
+        </div>
+    </div>
+
+
+    <div id="secondmonthcont" class="content">
+
+
+        <table id="secondgradelist" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>Αριθμός Μητρώου</th>
+                    <th>Βαθμός</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="graphwrapper">
+            <div id="secondplot"></div>
+            <div id="secondpieall"></div>
+            <div id="secondpiefailpass"></div>
+        </div>
+    </div>
+
+
+
+
+</div>
+<script type="text/javascript">
+
+            function populate(){
+    $(document).ready(function() 
+            { 
+            $("#firstgradelist").tablesorter({widgets:['zebra']});
+            jsonpage = "/course?id={{ id }}&json=true";
+            rendercourse(jsonpage, $("#firstgradelist"), "plot", "pieall", "piefailpass");
+            $("#firstgradelist").trigger("update");
+            $("#firstgradelist").trigger("applyWidgets",['zebra']);
+            } 
+            ); 
+            }
+    </script>
+
+<script type="text/javascript">
+    
+            google.load('visualization', '1', {'packages':['corechart']});
+            google.setOnLoadCallback(populate);
+</script>
+
+
+    <script> 
+        $(document).ready(function() {
+
+            //When page loads...
+            $(".content").hide(); //Hide all content
+            $("ul.tabs li:first").addClass("active").show(); //Activate first tab
+            $(".content:first").show(); //Show first tab content
+
+            //On Click Event
+            $("ul.tabs li").click(function() {
+
+                $("ul.tabs li").removeClass("active"); //Remove any "active" class
+                $(this).addClass("active"); //Add "active" class to selected tab
+                $(".content").hide(); //Hide all tab content
+
+                var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
+                $(activeTab).fadeIn(); //Fade in the active ID content
+                return false;
+            });
+
+        });
+    </script>
+
+
+    {% endblock %}

@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block results %}
+<div id="toolbar">
+    <h3 style="display:inline">{{ name }}</h3>
+</div>
+
+<ul class="tabs">
+    <li><a href="#month-june">Ιούνιος</a></li>
+    <li><a href="#month-febr">Φεβρουάριος</a></li>
+    <li><a href="#month-sept">Σεπτέμβριος</a></li>
+</ul>
+
+<div class="month-container">
+    <div id="month-june" class="content">
+        <table id="junesummary" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>Πρόσφατο</th>
+                    <th>Μάθημα</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div id="month-febr" class="content">
+
+        <table id="februarysummary" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>Πρόσφατο</th>
+                    <th>Μάθημα</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div id="month-sept" class="content">
+        <table id="septembersummary" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>Πρόσφατο</th>
+                    <th>Μάθημα</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+
+</div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() 
+            { 
+            $("#summarylist").tablesorter({sortList:[[[0,0]]]});
+            jsonpage = "/main?json=true";
+            rendersummary(jsonpage, $("#summarylist"));
+            $("#summarylist").trigger("update");
+            } 
+            ); 
+        </script>
+
+        <script> 
+            $(document).ready(function() {
+
+                //When page loads...
+                $(".content").hide(); //Hide all content
+                $("ul.tabs li:first").addClass("active").show(); //Activate first tab
+                $(".content:first").show(); //Show first tab content
+
+                //On Click Event
+                $("ul.tabs li").click(function() {
+
+                    $("ul.tabs li").removeClass("active"); //Remove any "active" class
+                    $(this).addClass("active"); //Add "active" class to selected tab
+                    $(".content").hide(); //Hide all tab content
+
+                    var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
+                    $(activeTab).fadeIn(); //Fade in the active ID content
+                    return false;
+                });
+
+            });
+        </script>
+
+
+
+
+        {% endblock %}

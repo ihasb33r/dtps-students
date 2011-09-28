@@ -1,0 +1,4 @@
+cron:
+- description: update the next course
+  url: /updatenext
+  schedule: every 2 minutes
